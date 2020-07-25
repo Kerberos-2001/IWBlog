@@ -1,0 +1,17 @@
+{% extends 'Posts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="tm-main-content login">
+    <div class="container">
+        <form class="blogDiv" method="POST">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn"
+                style="margin-left: 7em; background-color: #d9610f; color: white; padding: 5px 30px; border-radius: 0px;"
+                type="submit">submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

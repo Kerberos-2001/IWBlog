@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Posts",
+    "accounts",
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CKEDITOR_UPLOAD_PATH = "/home/media/media.lawrence.com/uploads"
 
 ROOT_URLCONF = "blog.urls"
 
@@ -116,5 +121,37 @@ AUTH_USER_MODEL = "Posts.user"
 
 STATIC_URL = "/static/"
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "admin/static")
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+CKEDITOR_CONFIGS = {
+    "default": {"toolbar": None,},
+}
+
+CKEDITOR_JQUERY_URL = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+
+CKEDITOR_UPLOAD_PATH = "blogs/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+AUTHENTICATION_BACKENDS = [
+    "accounts.backends.UserEmailBackends",
+]
+
+
+# EMAIL_HOST = "smtp.mailtrap.io"
+# EMAIL_HOST_USER = "ca7805c995488b"
+# EMAIL_HOST_PASSWORD = "b7c74382f13b02"
+# EMAIL_PORT = "2525"
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'piyaprayag@gmail.com'
+EMAIL_HOST_PASSWORD = '2001Witcher'
+EMAIL_PORT = 587

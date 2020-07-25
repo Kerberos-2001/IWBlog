@@ -1,0 +1,20 @@
+{% extends 'Posts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="tm-main-content login">
+    <div class="container">
+        <form class="signupinnerDiv" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn"
+                style="margin-left: 7em; background-color: #d9610f; padding: 5px 30px; border-radius: 0px;"
+                type="submit">Sign Up</button>
+            <p style="padding-left: 30px;">Already have an account <a href="/account/login"
+                    style="color: #d9610f;">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}

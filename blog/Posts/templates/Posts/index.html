@@ -1,0 +1,20 @@
+{% extends 'Posts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="tm-main-content tm-gallery-container">
+    <div class="grid">
+        {% for img in blogs %}
+        <a href="blog/{{ img.slug }}">
+            <div class="grid-item">
+                <img src="{{img.image.url}}" alt="Image">
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

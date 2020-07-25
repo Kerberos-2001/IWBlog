@@ -1,0 +1,12 @@
+{% extends 'Posts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="tm-main-content">
+    <a class="btn {{ isUser }}"
+        style="position: absolute; top: 5px; right: 20px; z-index: 10; background-color: #d9610f; color: white; border-radius: 80%;"
+        href="/edit/{{ blog.slug }}">edit</a>
+    <h1>{{ blog.title }}</h1>
+    {{ blog.body | safe }}
+</div>
+{% endblock %}

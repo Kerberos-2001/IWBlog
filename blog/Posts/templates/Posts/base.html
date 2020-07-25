@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog - IW</title>
+    <!--
+
+Template 2094 Mason
+
+http://www.tooplate.com/view/2094-mason
+
+-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type=" text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+    <link rel=" stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans", https://fonts.google.com/ -->
+    <link rel="stylesheet" href="{% static 'Posts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!-- Font Awesome, http://fontawesome.io/ -->
+    <link rel="stylesheet" href="{% static 'Posts/css/bootstrap.min.css' %}">
+    <!-- Bootstrap styles, https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{% static 'Posts/css/tooplate-style.css' %}"> <!-- Templatemo style -->
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="tm-body">
+            {% include 'Posts/navigation.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="tm-footer text-right">
+        <p>Copyright &copy; <span class="tm-current-year">2020</span> Kerbrose
+
+            - Designed by Prayag</p>
+    </footer>
+
+    <script src="{% static 'Posts/js/jquery-1.11.3.min.js' %}"></script>
+    <!-- jQuery (https://jquery.com/download/) -->
+    <script src="{% static 'Posts/js/imagesloaded.pkgd.min.js' %}"></script> <!-- https://masonry.desandro.com/ -->
+    <script src="{% static 'Posts/js/masonry.pkgd.min.js' %}"></script> <!-- https://masonry.desandro.com/ -->
+
+    <!-- Templatemo scripts -->
+    <script>
+
+        $(document).ready(function () {
+
+
+            var $grid = $('.grid').masonry({
+
+                itemSelector: '.grid-item',
+                isFitWidth: true,
+                columnWidth: 1
+            });
+            // layout Masonry after each image loads
+            $grid.imagesLoaded().progress(function () {
+                $grid.masonry('layout');
+            });
+
+            // Update the current year in copyright
+            $('.tm-current-year').text(new Date().getFullYear());
+        });
+
+    </script>
+</body>
+
+</html>
